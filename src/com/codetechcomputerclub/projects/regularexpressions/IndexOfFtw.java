@@ -1,7 +1,6 @@
 package com.codetechcomputerclub.projects.regularexpressions;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,15 +12,24 @@ public class IndexOfFtw {
                     "0123456789" +
                     "_";
 
-    public static final String[] validNameChars = (IndexOfFtw.alphanumeric + ".+-")
-            .split("");
-    public static final String[] validDomainChars = (IndexOfFtw.alphanumeric + "-")
-            .split("");
+    public static final char[] validNameChars = (IndexOfFtw.alphanumeric + ".+-")
+            .toCharArray();
+    public static final char[] validDomainChars = (IndexOfFtw.alphanumeric + "-")
+            .toCharArray();
 
-    private static boolean charsAreInArray(String[] strings, String string) {
-        List<String> list = Arrays.asList(strings);
-        for (String character : string.split("")) {
-            if (!list.contains(character)) {
+    private static boolean inArray(char[] chars, char character) {
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] == character) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean stringCharsAreInArray(char[] chars, String string) {
+        char[] stringChars = string.toCharArray();
+        for (int i = 0; i < stringChars.length; i++) {
+            if (!IndexOfFtw.inArray(chars, stringChars[i])) {
                 return false;
             }
         }
@@ -29,11 +37,13 @@ public class IndexOfFtw {
     }
 
     private static boolean validNamePart(String input) {
-        return IndexOfFtw.charsAreInArray(IndexOfFtw.validNameChars, input);
+        return IndexOfFtw.stringCharsAreInArray(IndexOfFtw.validNameChars,
+                input);
     }
 
     private static boolean validDomainPart(String input) {
-        return IndexOfFtw.charsAreInArray(IndexOfFtw.validDomainChars, input);
+        return IndexOfFtw.stringCharsAreInArray(IndexOfFtw.validDomainChars,
+                input);
     }
 
     private static List<String> splitDots(String string) {
