@@ -88,7 +88,7 @@ public class IndexOfFtw {
         return true;
     }
 
-    public static void main(final String[] args) {
+    public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
