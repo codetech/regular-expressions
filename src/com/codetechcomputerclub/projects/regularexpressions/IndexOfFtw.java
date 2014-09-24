@@ -34,21 +34,13 @@ public class IndexOfFtw {
 
         String domainPart = input.substring(atIndex + 1);
 
-        int extensionDotIndex = domainPart.indexOf(".");
+        List<String> domainParts = IndexOfFtw.splitDots(domainPart);
 
-        // Normally this would be == -1, but we need to include index 0 so we
-        // fail on "abc@.abc".
-        if (extensionDotIndex <= 0) {
+        if (domainParts.size() < 2) {
             return false;
         }
 
-        String tldPart = domainPart.substring(extensionDotIndex + 1);
-        if (tldPart.length() == 0) {
-            return false;
-        }
-
-        List<String> tldParts = IndexOfFtw.splitDots(tldPart);
-        for (String part : tldParts) {
+        for (String part : domainParts) {
             if (part.length() == 0) {
                 return false;
             }
