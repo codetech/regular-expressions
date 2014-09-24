@@ -14,10 +14,10 @@ public class RegexTestHarness {
         while (true) {
 
             System.out.print("Enter your regex: ");
-            final Pattern pattern = Pattern.compile(scanner.nextLine());
+            Pattern pattern = Pattern.compile(scanner.nextLine());
 
             System.out.print("Enter input string to search: ");
-            final Matcher matcher = pattern.matcher(scanner.nextLine());
+            Matcher matcher = pattern.matcher(scanner.nextLine());
 
             if (!matcher.find()) {
                 System.out.println("No match found.");
