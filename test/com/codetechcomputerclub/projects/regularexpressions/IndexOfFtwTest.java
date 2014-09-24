@@ -15,6 +15,8 @@ public class IndexOfFtwTest {
         Assert.assertFalse(IndexOfFtw.isEmail("abc@abc"));
         Assert.assertFalse(IndexOfFtw.isEmail("abc@abc."));
         Assert.assertFalse(IndexOfFtw.isEmail("abc@abc.com."));
+        Assert.assertFalse(IndexOfFtw.isEmail("abc@.abc")); // Harder.
+        Assert.assertFalse(IndexOfFtw.isEmail("abc@.abc."));
         Assert.assertFalse(IndexOfFtw.isEmail("@abc."));
         Assert.assertFalse(IndexOfFtw.isEmail("@abc.com"));
         Assert.assertFalse(IndexOfFtw.isEmail("@."));

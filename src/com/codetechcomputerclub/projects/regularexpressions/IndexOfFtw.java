@@ -35,7 +35,10 @@ public class IndexOfFtw {
         String domainPart = input.substring(atIndex + 1);
 
         int extensionDotIndex = domainPart.indexOf(".");
-        if (extensionDotIndex == -1) {
+
+        // Normally this would be == -1, but we need to include index 0 so we
+        // fail on "abc@.abc".
+        if (extensionDotIndex <= 0) {
             return false;
         }
 
