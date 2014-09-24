@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class RegexTestHarness {
 
-    public static void main(final String[] args) {
+    public static void main(String[] args) {
 
         @SuppressWarnings("resource")
         final Scanner scanner = new Scanner(System.in);
